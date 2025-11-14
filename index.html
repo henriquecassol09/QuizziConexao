@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz Conexão CEEP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Removido input de nome, apenas botão de começar -->
+        <div id="start-screen" class="screen active">
+            <h1 class="main-title">Quizz Conexão CEEP</h1>
+            <h2 class="subtitle">Você entendeu tudo mesmo?</h2>
+            <button id="start-quiz-btn" class="interactive-btn">Começar Quizz</button>
+        </div>
+
+        <div id="quiz-screen" class="screen hidden">
+            <!-- Adicionado temporizador -->
+            <div class="timer-container">
+                <div class="timer-icon">⏱️</div>
+                <div class="timer-display">
+                    <span id="timer-minutes">07</span>:<span id="timer-seconds">00</span>
+                </div>
+            </div>
+            
+            <p class="question-counter">Pergunta <span id="current-question">1</span> de 15</p>
+            <div class="card quiz-card">
+                <h3 id="question-text" class="question-text">Texto da Pergunta</h3>
+                <div id="options-container" class="options-container">
+                </div>
+            </div>
+            <div id="feedback-container" class="feedback-container hidden">
+                <p id="feedback-message"></p>
+                <button id="next-question-btn" class="interactive-btn">Próxima Pergunta</button>
+            </div>
+        </div>
+
+        <!-- Tela final com porcentagem de acerto e avaliação -->
+        <div id="result-screen" class="screen hidden">
+            <h2 class="result-title">Resultado Final!</h2>
+            <div class="card result-card">
+                <p id="final-message" class="final-message"></p>
+                
+                <!-- Seção de porcentagem de acerto -->
+                <div class="score-details">
+                    <p class="score-summary">Sua pontuação: <span id="score-display">0</span>/15</p>
+                    <p class="score-summary" style="font-size: 1.3em; color: #e67e22; margin-top: 10px;">Acerto: <span id="percentage-display">0%</span></p>
+                </div>
+
+                <!-- Sistema de avaliação com estrelas -->
+                <div class="rating-section">
+                    <h3 class="rating-title">📊 Avalie o Quiz:</h3>
+                    <div class="stars-container" id="stars-container">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                    <p id="rating-feedback" class="rating-feedback hidden">✅ Obrigado pela avaliação!</p>
+                </div>
+            </div>
+            <button id="restart-quiz-btn" class="interactive-btn">Tentar Novamente</button>
+        </div>
+    </div>
+    
+    <script type="module" src="script.js"></script>
+</body>
+</html>
