@@ -323,72 +323,29 @@ body {
     border-radius: 10px;
 }
 
-/* Adicionado estilos para sistema de avaliação com estrelas */
-.rating-section {
+/* Adicionado estilos para seção de QR code */
+.qr-section {
     margin-top: 25px;
     padding: 20px;
     background: rgba(255, 255, 255, 0.08);
     border-radius: 10px;
-}
-
-.rating-title {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    font-weight: 600;
-    color: white;
-}
-
-.stars-container {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-.star {
-    font-size: 2.5em;
-    color: rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    user-select: none;
-}
-
-.star:hover,
-.star.active {
-    color: #e67e22;
-    transform: scale(1.2);
-}
-
-.star.active {
-    animation: starPop 0.3s ease;
-}
-
-@keyframes starPop {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.4);
-    }
-    100% {
-        transform: scale(1.2);
-    }
-}
-
-.rating-feedback {
-    color: white;
+.qr-text {
+    font-size: 1.2em;
     font-weight: 600;
-    margin-top: 10px;
-    animation: fadeIn 0.5s ease;
+    color: white;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+.qr-code {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 #restart-quiz-btn {

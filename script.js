@@ -133,7 +133,6 @@ let isAnswered = false;
 let timerInterval = null;
 let timeRemaining = 420;
 let quizResultId = null;
-let userRating = 0;
 
 const startScreen = document.getElementById('start-screen');
 const quizScreen = document.getElementById('quiz-screen');
@@ -157,9 +156,6 @@ const finalMessage = document.getElementById('final-message');
 const scoreDisplay = document.getElementById('score-display');
 const percentageDisplay = document.getElementById('percentage-display');
 const restartQuizBtn = document.getElementById('restart-quiz-btn');
-
-const starsContainer = document.getElementById('stars-container');
-const ratingFeedback = document.getElementById('rating-feedback');
 
 function formatTime(seconds) {
     const mins = Math.floor(seconds / 60);
@@ -289,18 +285,6 @@ async function saveResultToFirebase(score, percentage) {
     }
 }
 
-async function saveRatingToFirebase(rating) {
-    try {
-        await addDoc(collection(db, 'quiz_ratings'), {
-            rating: rating,
-            timestamp: serverTimestamp()
-        });
-        console.log("Avaliação salva:", rating);
-    } catch (error) {
-        console.error('Erro ao salvar avaliação:', error);
-    }
-}
-
 async function showResult() {
     if (timerInterval) {
         clearInterval(timerInterval);
@@ -324,32 +308,8 @@ async function showResult() {
 
     quizResultId = await saveResultToFirebase(score, percentageRounded);
 
-    userRating = 0;
-    ratingFeedback.classList.add('hidden');
-    const stars = starsContainer.querySelectorAll('.star');
-    stars.forEach(star => star.classList.remove('active'));
-
     showScreen(resultScreen);
 }
-
-starsContainer.addEventListener('click', async (e) => {
-    if (e.target.classList.contains('star')) {
-        const rating = parseInt(e.target.dataset.rating);
-        userRating = rating;
-        
-        const stars = starsContainer.querySelectorAll('.star');
-        stars.forEach((star, index) => {
-            if (index < rating) {
-                star.classList.add('active');
-            } else {
-                star.classList.remove('active');
-            }
-        });
-        
-        ratingFeedback.classList.remove('hidden');
-        await saveRatingToFirebase(rating);
-    }
-});
 
 startQuizBtn.addEventListener('click', () => {
     questions = shuffleArray(questionsOriginal).map(q => ({

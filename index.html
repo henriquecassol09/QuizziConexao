@@ -36,7 +36,7 @@
             </div>
         </div>
 
-        <!-- Tela final com porcentagem de acerto e avaliação -->
+        <!-- Tela final com porcentagem de acerto -->
         <div id="result-screen" class="screen hidden">
             <h2 class="result-title">Resultado Final!</h2>
             <div class="card result-card">
@@ -48,17 +48,10 @@
                     <p class="score-summary" style="font-size: 1.3em; color: #e67e22; margin-top: 10px;">Acerto: <span id="percentage-display">0%</span></p>
                 </div>
 
-                <!-- Sistema de avaliação com estrelas -->
-                <div class="rating-section">
-                    <h3 class="rating-title">📊 Avalie o Quiz:</h3>
-                    <div class="stars-container" id="stars-container">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
-                    </div>
-                    <p id="rating-feedback" class="rating-feedback hidden">✅ Obrigado pela avaliação!</p>
+                <!-- Substituído seção de avaliação com estrelas por QR code com texto "escaneie para avaliar" -->
+                <div class="qr-section">
+                    <p class="qr-text">Escaneie para avaliar</p>
+                    <img src="qrcode.png" alt="QR code para avaliar" class="qr-code">
                 </div>
             </div>
             <button id="restart-quiz-btn" class="interactive-btn">Tentar Novamente</button>
