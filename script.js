@@ -312,14 +312,10 @@ async function showResult() {
 
     let resultMessage = "";
 
-    if (percentage === 100) {
-        resultMessage = `🏆 Uau! Você realmente entendeu tudo! Você ganhou todos os prêmios, parabéns! Obrigada por jogar!`;
-    } else if (percentage >= 80) {
-        resultMessage = `🎉 Parabéns! Parece que você entendeu mesmo, acertou mais de 80%! Você ganhou um BomBom e uma bala! Obrigada por jogar!`;
-    } else if (percentage >= 65) {
-        resultMessage = `👍 Parabéns! Você acertou mais de 65%! Seu prêmio é um bombom! Obrigada por jogar!`;
+    if (percentage === 80) {
+        resultMessage = `🏆 Uau! Você realmente entendeu tudo! acertou mais de 80%! garantiu seu prêmio, parabéns! Obrigada por jogar!`;
     } else {
-        resultMessage = `📚 Que pena, você acertou menos de 65%, infelizmente você não vai ganhar brinde, tente novamente se quiser um BomBom, obrigada por jogar!`;
+        resultMessage = `📚 Que pena, você acertou mais de 80%, não foi dessa vez, obrigado por jogar!`;
     }
 
     finalMessage.textContent = resultMessage;
